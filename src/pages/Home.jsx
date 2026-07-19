@@ -8,6 +8,7 @@ export default function Home({ onOpenBooking }) {
   
   // Medical Spectrum Slider State
   const [spectrumIdx, setSpectrumIdx] = useState(0);
+  const [isSpectrumPaused, setIsSpectrumPaused] = useState(false);
 
   const testimonials = [
     {
@@ -119,11 +120,12 @@ export default function Home({ onOpenBooking }) {
   const prevSpectrum = () => setSpectrumIdx((prev) => (prev - 1 + spectrumServices.length) % spectrumServices.length);
 
   useEffect(() => {
+    if (isSpectrumPaused) return;
     const timer = setInterval(() => {
       setSpectrumIdx((prev) => (prev + 1) % spectrumServices.length);
-    }, 5000);
+    }, 3000);
     return () => clearInterval(timer);
-  }, []);
+  }, [isSpectrumPaused, spectrumServices.length]);
 
   return (
     <div style={{ paddingTop: '80px', overflowX: 'hidden' }}>
@@ -532,71 +534,103 @@ export default function Home({ onOpenBooking }) {
         </div>
       </section>
 
-      {/* 5. TREATMENT CATEGORIES MARQUEE */}
-      <style>{`
-        @keyframes scrollMarquee {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
-        }
-        .marquee-track {
-          display: flex;
-          gap: 24px;
-          width: max-content;
-          animation: scrollMarquee 35s linear infinite;
-        }
-        .marquee-track:hover {
-          animation-play-state: paused;
-        }
-        .marquee-card {
-          width: 320px;
-          flex-shrink: 0;
-        }
-      `}</style>
-      <section className="section-container" style={{ overflow: 'hidden' }}>
-        <div className="section-title">
-          <span className="badge-mint">Our Complete Medical Spectrum</span>
-          <h2 style={{ marginTop: '16px' }}>Comprehensive Dental Solutions</h2>
-          <p>From preventive crystal aligners to full mouth ceramic rehabilitations, everything is performed in-house by sub-specialty masters.</p>
-        </div>
+      {/* 5. TREATMENT CATEGORIES COVERFLOW */}
+      <section className="section-container" style={{ overflow: 'hidden', background: '#111818', margin: 0, maxWidth: 'none', padding: '100px 24px' }}>
+        <div style={{ maxWidth: '1320px', margin: '0 auto', textAlign: 'center' }}>
+          <div className="section-title">
+            <span className="badge-mint" style={{ background: 'rgba(0, 255, 255, 0.1)', color: '#00FFFF', border: '1px solid rgba(0, 255, 255, 0.2)' }}>Our Complete Medical Spectrum</span>
+            <h2 style={{ marginTop: '16px', color: '#FFF' }}>Comprehensive Dental Solutions</h2>
+            <p style={{ color: '#A0B2B2' }}>From preventive crystal aligners to full mouth ceramic rehabilitations, everything is performed in-house by sub-specialty masters.</p>
+          </div>
 
-        <div style={{ width: '100%', overflow: 'hidden', padding: '20px 0' }}>
-          <div className="marquee-track">
-            {[...spectrumServices, ...spectrumServices].map((srv, idx) => (
-              <div
-                key={idx}
-                className="glass-card marquee-card"
-                style={{ padding: '0', textAlign: 'left', position: 'relative', overflow: 'hidden', display: 'flex', flexDirection: 'column' }}
-              >
-                <div style={{ width: '100%', height: '180px', overflow: 'hidden' }}>
-                  <img src={srv.img} alt={srv.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                </div>
-                <div style={{ padding: '24px', display: 'flex', flexDirection: 'column', flex: 1 }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '14px' }}>
-                    <div style={{ fontSize: '2.2rem' }}>{srv.icon}</div>
-                    <h4 style={{ fontSize: '1.15rem', margin: 0, color: 'var(--dark-slate)' }}>{srv.title}</h4>
+          <div 
+            style={{ 
+              position: 'relative', 
+              height: '500px', 
+              marginTop: '60px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              perspective: '1200px'
+            }}
+            onMouseEnter={() => setIsSpectrumPaused(true)}
+            onMouseLeave={() => setIsSpectrumPaused(false)}
+          >
+            {spectrumServices.map((srv, idx) => {
+              // Calculate distance from center (accounting for wrap-around)
+              const halfLen = Math.floor(spectrumServices.length / 2);
+              let diff = (idx - spectrumIdx + spectrumServices.length) % spectrumServices.length;
+              if (diff > halfLen) diff -= spectrumServices.length;
+              
+              const isCenter = diff === 0;
+              const absDiff = Math.abs(diff);
+              
+              // Only show items within distance of 2 from center
+              if (absDiff > 2) return null;
+
+              const translateX = diff * 320;
+              const scale = isCenter ? 1 : Math.max(0.7, 1 - absDiff * 0.15);
+              const zIndex = 10 - absDiff;
+              const opacity = isCenter ? 1 : Math.max(0.2, 0.8 - absDiff * 0.3);
+              const blur = isCenter ? 'blur(0px)' : `blur(${absDiff * 2}px)`;
+
+              return (
+                <div 
+                  key={idx}
+                  onClick={() => setSpectrumIdx(idx)}
+                  style={{
+                    position: 'absolute',
+                    width: '400px',
+                    height: '500px',
+                    transition: 'all 0.6s cubic-bezier(0.25, 1, 0.5, 1)',
+                    transform: `translateX(${translateX}px) scale(${scale})`,
+                    zIndex,
+                    opacity,
+                    filter: blur,
+                    cursor: isCenter ? 'default' : 'pointer',
+                    borderRadius: '24px',
+                    padding: '0',
+                    background: '#1A2424',
+                    border: isCenter ? '2px solid #00FFFF' : '1px solid rgba(255,255,255,0.1)',
+                    boxShadow: isCenter ? '0 0 30px rgba(0, 255, 255, 0.4), inset 0 0 20px rgba(0, 255, 255, 0.2)' : '0 10px 30px rgba(0,0,0,0.5)',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    overflow: 'hidden',
+                    textAlign: 'left'
+                  }}
+                >
+                  <div style={{ width: '100%', height: '220px', overflow: 'hidden', position: 'relative' }}>
+                    <img src={srv.img} alt={srv.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                    <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, transparent, #1A2424)' }} />
                   </div>
-                  <p style={{ color: 'var(--grey)', fontSize: '0.9rem', lineHeight: 1.5, marginBottom: '20px', flex: 1 }}>{srv.desc}</p>
-                  <button
-                    onClick={onOpenBooking}
-                    style={{
-                      background: 'transparent',
-                      border: 'none',
-                      color: '#59C29D',
-                      fontFamily: 'var(--font-subheading)',
-                      fontWeight: 700,
-                      fontSize: '0.88rem',
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '6px',
-                      cursor: 'pointer',
-                      padding: 0
-                    }}
-                  >
-                    Learn More & Book <ArrowRight size={16} />
-                  </button>
+                  <div style={{ padding: '32px', flex: 1, display: 'flex', flexDirection: 'column' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '16px' }}>
+                      <div style={{ fontSize: '2.5rem' }}>{srv.icon}</div>
+                      <h4 style={{ fontSize: '1.4rem', margin: 0, color: isCenter ? '#00FFFF' : '#FFF', transition: 'color 0.4s' }}>{srv.title}</h4>
+                    </div>
+                    <p style={{ color: '#A0B2B2', fontSize: '1rem', lineHeight: 1.6, flex: 1 }}>{srv.desc}</p>
+                    <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
+                      <button 
+                        onClick={(e) => { e.stopPropagation(); onOpenBooking(); }}
+                        style={{ 
+                          background: isCenter ? '#00FFFF' : 'rgba(255,255,255,0.1)', 
+                          border: 'none', 
+                          color: isCenter ? '#111818' : '#FFF', 
+                          padding: '12px 32px', 
+                          borderRadius: '50px',
+                          fontWeight: 700,
+                          fontSize: '0.9rem',
+                          cursor: 'pointer',
+                          transition: 'all 0.3s'
+                        }}
+                      >
+                        Learn More & Book
+                      </button>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
