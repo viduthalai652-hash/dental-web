@@ -17,9 +17,9 @@ export default function Aligners({ onOpenBooking }) {
       symptoms: ['Floss getting stuck between teeth', 'Difficulty cleaning gum margins', 'Uneven enamel wear on front incisors'],
       duration: '4 to 6 Months Average',
       benefits: ['Effortless flossing & brushing', 'Symmetrical arch expansion without tooth extraction', 'Immediate confidence boost'],
-      imgBefore: '/images/teeth_alignment_transition_slow.gif',
-      imgAfter: '/images/teeth_alignment_transition_slow.gif',
-      gif: '/images/teeth_alignment_transition_slow.gif'
+      imgBefore: '/videos/teeth_alignment.mp4',
+      imgAfter: '/videos/teeth_alignment.mp4',
+      gif: '/videos/teeth_alignment.mp4'
     },
     {
       id: 'spacing',
@@ -28,9 +28,9 @@ export default function Aligners({ onOpenBooking }) {
       symptoms: ['Food impaction between gaps', 'Self-consciousness when smiling or speaking', 'Shifting adjacent teeth over time'],
       duration: '3 to 5 Months Average',
       benefits: ['Seamless gap closure without metal brackets', 'Protection of exposed gum tissue', 'Improved speech clarity'],
-      imgBefore: '/images/teeth_gap_to_aligned.gif',
-      imgAfter: '/images/teeth_gap_to_aligned.gif',
-      gif: '/images/teeth_gap_to_aligned.gif'
+      imgBefore: '/videos/teeth_gap_alignment.mp4',
+      imgAfter: '/videos/teeth_gap_alignment.mp4',
+      gif: '/videos/teeth_gap_alignment.mp4'
     },
     {
       id: 'overjet',
@@ -39,9 +39,9 @@ export default function Aligners({ onOpenBooking }) {
       symptoms: ['Upper lip unable to comfortably close over teeth', 'High risk of dental trauma during sports', 'Lower teeth biting into upper roof of mouth'],
       duration: '6 to 8 Months Average',
       benefits: ['Balanced profile and chin harmony', 'Elimination of trauma risk', 'Normal relaxed lip closure'],
-      imgBefore: '/images/teeth_rotated_to_aligned_creative.gif',
-      imgAfter: '/images/teeth_rotated_to_aligned_creative.gif',
-      gif: '/images/teeth_rotated_to_aligned_creative.gif'
+      imgBefore: '/videos/teeth_overjet_alignment.mp4',
+      imgAfter: '/videos/teeth_overjet_alignment.mp4',
+      gif: '/videos/teeth_overjet_alignment.mp4'
     },
     {
       id: 'crossbite',
@@ -50,9 +50,9 @@ export default function Aligners({ onOpenBooking }) {
       symptoms: ['Jaw clicking, popping, or chronic morning headaches', 'Asymmetrical jaw posture when chewing', 'Rapid chipping of tooth cusps'],
       duration: '5 to 7 Months Average',
       benefits: ['Instant relief from jaw muscle tension & TMJ pain', 'Symmetrical chewing bite distribution', 'Long-term enamel protection'],
-      imgBefore: '/images/teeth_crooked_to_aligned.gif',
-      imgAfter: '/images/teeth_crooked_to_aligned.gif',
-      gif: '/images/teeth_crooked_to_aligned.gif'
+      imgBefore: '/videos/teeth_crossbite_alignment.mp4',
+      imgAfter: '/videos/teeth_crossbite_alignment.mp4',
+      gif: '/videos/teeth_crossbite_alignment.mp4'
     },
     {
       id: 'openbite',
@@ -61,9 +61,9 @@ export default function Aligners({ onOpenBooking }) {
       symptoms: ['Inability to bite into thin foods like pizza or sandwiches', 'Lisping or speech impediments', 'Excessive chewing strain on back molars'],
       duration: '6 to 9 Months Average',
       benefits: ['Restored front biting mechanics', 'Elimination of speech lisps', 'Balanced molar chewing pressure'],
-      imgBefore: '/images/teeth_openbite_to_aligned.gif',
-      imgAfter: '/images/teeth_openbite_to_aligned.gif',
-      gif: '/images/teeth_openbite_to_aligned.gif'
+      imgBefore: '/videos/teeth_openbite_alignment.mp4',
+      imgAfter: '/videos/teeth_openbite_alignment.mp4',
+      gif: '/videos/teeth_openbite_alignment.mp4'
     }
   ];
 
@@ -201,11 +201,19 @@ export default function Aligners({ onOpenBooking }) {
               return (
                 <div className="grid-2" style={{ alignItems: 'center', gap: '48px' }}>
                   <div style={{ position: 'relative', height: '440px', borderRadius: '28px', overflow: 'hidden', border: '2px solid rgba(126, 217, 183, 0.4)', boxShadow: '0 20px 50px rgba(0,0,0,0.12)' }}>
-                    <img src={current.imgBefore} alt="Before Aligner" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: current.gif ? 'none' : 'sepia(0.18) contrast(0.92)' }} />
+                    {current.imgBefore.endsWith('.mp4') ? (
+                      <video src={current.imgBefore} autoPlay loop muted playsInline style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                    ) : (
+                      <img src={current.imgBefore} alt="Before Aligner" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: current.gif ? 'none' : 'sepia(0.18) contrast(0.92)' }} />
+                    )}
                     <span style={{ position: 'absolute', top: '20px', left: '20px', background: 'rgba(29,43,42,0.85)', color: '#FFF', padding: '6px 16px', borderRadius: '50px', fontSize: '0.8rem', fontWeight: 700, zIndex: 5 }}>BEFORE (Misaligned)</span>
 
                     <div style={{ position: 'absolute', top: 0, right: 0, bottom: 0, width: `${100 - simPos}%`, overflow: 'hidden', zIndex: 2 }}>
-                      <img src={current.imgAfter} alt="After Aligner" style={{ position: 'absolute', top: 0, right: 0, width: '100%', height: '100%', objectFit: 'cover', filter: current.gif ? 'none' : 'brightness(1.08) contrast(1.06)' }} />
+                      {current.imgAfter.endsWith('.mp4') ? (
+                        <video src={current.imgAfter} autoPlay loop muted playsInline style={{ position: 'absolute', top: 0, right: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
+                      ) : (
+                        <img src={current.imgAfter} alt="After Aligner" style={{ position: 'absolute', top: 0, right: 0, width: '100%', height: '100%', objectFit: 'cover', filter: current.gif ? 'none' : 'brightness(1.08) contrast(1.06)' }} />
+                      )}
                       <span style={{ position: 'absolute', top: '20px', right: '20px', background: 'var(--theme-color)', color: 'var(--dark-slate)', padding: '6px 16px', borderRadius: '50px', fontSize: '0.8rem', fontWeight: 800, zIndex: 5 }}>AFTER ({current.duration})</span>
                     </div>
 
@@ -306,7 +314,11 @@ export default function Aligners({ onOpenBooking }) {
                 </div>
 
                 <div style={{ order: isEven ? 2 : 1, position: 'relative', height: '360px', borderRadius: '28px', overflow: 'hidden', boxShadow: '0 16px 40px rgba(0,0,0,0.12)' }}>
-                  <img src={caseItem.gif || caseItem.imgBefore} alt={caseItem.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  {(caseItem.gif || caseItem.imgBefore).endsWith('.mp4') ? (
+                    <video src={caseItem.gif || caseItem.imgBefore} autoPlay loop muted playsInline style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  ) : (
+                    <img src={caseItem.gif || caseItem.imgBefore} alt={caseItem.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  )}
                   <div style={{ position: 'absolute', bottom: '20px', left: '20px', background: 'rgba(29,43,42,0.88)', color: '#7ED9B7', padding: '8px 18px', borderRadius: '50px', fontSize: '0.85rem', fontWeight: 700 }}>
                     {caseItem.gif ? '✨ Animated Alignment Transition' : '✨ AI Simulation Available on Visit'}
                   </div>
