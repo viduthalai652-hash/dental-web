@@ -55,29 +55,25 @@ export default function Clinics({ onOpenBooking, onOpenTour }) {
       title: "Crooked Teeth Alignment",
       patient: "Jessica T.",
       desc: "Severe crowding resolved in 9 months using our invisible clear aligners.",
-      imgBefore: "/images/teeth_crooked_to_aligned.gif",
-      imgAfter: "/images/teeth_crooked_to_aligned.gif"
+      video: "/videos/teeth_crossbite_alignment.mp4"
     },
     {
       title: "Gap Closure (Diastema)",
       patient: "Michael R.",
       desc: "A noticeable front gap was flawlessly closed in just 6 months.",
-      imgBefore: "/images/teeth_gap_to_aligned.gif",
-      imgAfter: "/images/teeth_gap_to_aligned.gif"
+      video: "/videos/teeth_gap_alignment.mp4"
     },
     {
       title: "Open Bite Correction",
       patient: "Sarah L.",
       desc: "Complex bite issues corrected allowing normal chewing and a beautiful smile.",
-      imgBefore: "/images/teeth_openbite_to_aligned.gif",
-      imgAfter: "/images/teeth_openbite_to_aligned.gif"
+      video: "/videos/teeth_openbite_alignment.mp4"
     },
     {
       title: "Complex Rotation",
       patient: "David W.",
       desc: "Rotated canines perfectly straightened with AI-driven treatment planning.",
-      imgBefore: "/images/teeth_rotated_to_aligned_creative.gif",
-      imgAfter: "/images/teeth_rotated_to_aligned_creative.gif"
+      video: "/videos/teeth_overjet_alignment.mp4"
     }
   ];
 
@@ -456,14 +452,17 @@ export default function Clinics({ onOpenBooking, onOpenTour }) {
               <ChevronLeft size={32} />
             </button>
             
-            <div style={{ width: '800px', background: 'rgba(255,255,255,0.05)', borderRadius: '32px', border: '1px solid rgba(255,255,255,0.1)', overflow: 'hidden', display: 'flex' }}>
-              <div style={{ flex: 1, position: 'relative' }}>
-                <div style={{ position: 'absolute', top: '20px', left: '20px', background: 'rgba(0,0,0,0.6)', padding: '6px 16px', borderRadius: '20px', fontSize: '0.9rem', fontWeight: 700 }}>BEFORE</div>
-                <img src={beforeAfterCases[baIdx].imgBefore} alt="Before" style={{ width: '100%', height: '400px', objectFit: 'cover' }} />
-              </div>
-              <div style={{ flex: 1, position: 'relative', borderLeft: '2px solid #59C29D' }}>
-                <div style={{ position: 'absolute', top: '20px', left: '20px', background: '#59C29D', padding: '6px 16px', borderRadius: '20px', fontSize: '0.9rem', fontWeight: 700 }}>AFTER</div>
-                <img src={beforeAfterCases[baIdx].imgAfter} alt="After" style={{ width: '100%', height: '400px', objectFit: 'cover' }} />
+            <div style={{ position: 'relative', width: '800px', height: '450px', background: 'rgba(255,255,255,0.05)', borderRadius: '32px', border: '1px solid rgba(255,255,255,0.1)', overflow: 'hidden', display: 'flex' }}>
+              <video 
+                src={beforeAfterCases[baIdx].video} 
+                autoPlay 
+                loop 
+                muted 
+                playsInline 
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+              />
+              <div style={{ position: 'absolute', top: '20px', left: '20px', background: '#59C29D', color: '#111818', padding: '8px 18px', borderRadius: '20px', fontSize: '0.85rem', fontWeight: 800 }}>
+                ✨ Live Aligner Transition
               </div>
             </div>
 

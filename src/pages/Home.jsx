@@ -50,7 +50,7 @@ export default function Home({ onOpenBooking }) {
       comfortRating: '9.9 / 10 (Zero Wires or Metal)',
       technique: '3D AI Arch Expansion & Micro-Movement',
       desc: 'By applying targeted biological micro-forces using our matte crystal aligners, we expanded the upper and lower dental arches by 4.2mm. This allowed bunched incisors to glide smoothly into golden-ratio alignment without a single extraction.',
-      gif: '/images/teeth_alignment_transition_slow.gif'
+      gif: '/videos/teeth_alignment.mp4'
     },
     {
       id: 'diastema',
@@ -62,7 +62,7 @@ export default function Home({ onOpenBooking }) {
       comfortRating: '10 / 10 Painless Care',
       technique: 'Symmetrical Central Approximation',
       desc: 'Our clear aligners exerted gentle elastic pull to close a prominent 3.8mm central gap while stabilizing the papilla gum tissue. The result is a seamless, tight contact point that prevents food impaction and enhances speech clarity.',
-      gif: '/images/teeth_gap_to_aligned.gif'
+      gif: '/videos/teeth_gap_alignment.mp4'
     },
     {
       id: 'overjet',
@@ -74,7 +74,7 @@ export default function Home({ onOpenBooking }) {
       comfortRating: '9.8 / 10 Ultra-Smooth Fit',
       technique: 'AI-Guided Torque & Derotation',
       desc: 'This patient presented with protruding upper front teeth and severe axial rotation. Using custom laser-trimmed aligners, we derotated the lateral incisors by 28 degrees while bringing the overjet back into harmonious facial balance.',
-      gif: '/images/teeth_rotated_to_aligned_creative.gif'
+      gif: '/videos/teeth_overjet_alignment.mp4'
     },
     {
       id: 'crossbite',
@@ -86,7 +86,7 @@ export default function Home({ onOpenBooking }) {
       comfortRating: '10 / 10 TMJ Muscle Relaxation',
       technique: 'Quadratic Arch De-collapsing',
       desc: 'Inverted upper teeth were causing chronic jaw muscle strain and TMJ clicking during chewing. Our aligners gently jumped the crossbite, restoring symmetrical chewing pressure across all back molars and providing instant headache relief.',
-      gif: '/images/teeth_crooked_to_aligned.gif'
+      gif: '/videos/teeth_crossbite_alignment.mp4'
     },
     {
       id: 'openbite',
@@ -98,7 +98,7 @@ export default function Home({ onOpenBooking }) {
       comfortRating: '9.9 / 10 Gentle Posterior Intrusion',
       technique: 'Molar Intrusion & Anterior Extrusion',
       desc: 'Anterior open bites make biting into thin foods difficult and often induce lisps. Our biological aligner protocol gently intruded the posterior molars while guiding upper incisors downward, creating a flawless 2mm vertical bite overlap.',
-      gif: '/images/teeth_openbite_to_aligned.gif'
+      gif: '/videos/teeth_openbite_alignment.mp4'
     }
   ];
 
@@ -462,11 +462,15 @@ export default function Home({ onOpenBooking }) {
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(380px, 1fr))', gap: '48px', alignItems: 'center' }}>
               {/* Left Animated Visual Frame */}
               <div style={{ position: 'relative', height: '440px', borderRadius: '30px', overflow: 'hidden', boxShadow: '0 24px 60px rgba(0,0,0,0.18)', border: '2px solid rgba(126, 217, 183, 0.5)', background: 'var(--dark-slate)' }}>
-                <img
-                  src={cases[galleryTab].gif}
-                  alt={cases[galleryTab].title}
-                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                />
+                {cases[galleryTab].gif.endsWith('.mp4') ? (
+                  <video src={cases[galleryTab].gif} autoPlay loop muted playsInline style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                ) : (
+                  <img
+                    src={cases[galleryTab].gif}
+                    alt={cases[galleryTab].title}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  />
+                )}
                 
                 {/* Top Status Pill */}
                 <div style={{ position: 'absolute', top: '20px', left: '20px', background: 'rgba(29, 43, 42, 0.9)', color: '#7ED9B7', padding: '8px 18px', borderRadius: '50px', fontSize: '0.82rem', fontWeight: 700, zIndex: 5, border: '1px solid rgba(126, 217, 183, 0.3)', display: 'flex', alignItems: 'center', gap: '6px' }}>
