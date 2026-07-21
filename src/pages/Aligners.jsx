@@ -201,36 +201,13 @@ export default function Aligners({ onOpenBooking }) {
               return (
                 <div className="grid-2" style={{ alignItems: 'center', gap: '48px' }}>
                   <div style={{ position: 'relative', height: '440px', borderRadius: '28px', overflow: 'hidden', border: '2px solid rgba(126, 217, 183, 0.4)', boxShadow: '0 20px 50px rgba(0,0,0,0.12)' }}>
-                    {current.imgBefore.endsWith('.mp4') ? (
-                      <video src={current.imgBefore} autoPlay loop muted playsInline style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                    {(current.gif || current.imgBefore).endsWith('.mp4') ? (
+                      <video src={current.gif || current.imgBefore} autoPlay loop muted playsInline style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                     ) : (
-                      <img src={current.imgBefore} alt="Before Aligner" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: current.gif ? 'none' : 'sepia(0.18) contrast(0.92)' }} />
+                      <img src={current.gif || current.imgBefore} alt="Aligner Transition" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                     )}
-                    <span style={{ position: 'absolute', top: '20px', left: '20px', background: 'rgba(29,43,42,0.85)', color: '#FFF', padding: '6px 16px', borderRadius: '50px', fontSize: '0.8rem', fontWeight: 700, zIndex: 5 }}>BEFORE (Misaligned)</span>
-
-                    <div style={{ position: 'absolute', top: 0, right: 0, bottom: 0, width: `${100 - simPos}%`, overflow: 'hidden', zIndex: 2 }}>
-                      {current.imgAfter.endsWith('.mp4') ? (
-                        <video src={current.imgAfter} autoPlay loop muted playsInline style={{ position: 'absolute', top: 0, right: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
-                      ) : (
-                        <img src={current.imgAfter} alt="After Aligner" style={{ position: 'absolute', top: 0, right: 0, width: '100%', height: '100%', objectFit: 'cover', filter: current.gif ? 'none' : 'brightness(1.08) contrast(1.06)' }} />
-                      )}
-                      <span style={{ position: 'absolute', top: '20px', right: '20px', background: 'var(--theme-color)', color: 'var(--dark-slate)', padding: '6px 16px', borderRadius: '50px', fontSize: '0.8rem', fontWeight: 800, zIndex: 5 }}>AFTER ({current.duration})</span>
-                    </div>
-
-                    <div style={{ position: 'absolute', top: 0, bottom: 0, left: `${simPos}%`, width: '4px', background: 'var(--white)', zIndex: 10, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                      <div style={{ width: '46px', height: '46px', borderRadius: '50%', background: 'var(--gradient-primary)', color: 'var(--dark-slate)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 900, boxShadow: '0 4px 16px rgba(0,0,0,0.3)' }}>
-                        ↔
-                      </div>
-                    </div>
-
-                    <input
-                      type="range"
-                      min="0"
-                      max="100"
-                      value={simPos}
-                      onChange={(e) => setSimPos(Number(e.target.value))}
-                      style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', opacity: 0, cursor: 'ew-resize', zIndex: 15 }}
-                    />
+                    <span style={{ position: 'absolute', top: '20px', left: '20px', background: 'rgba(29,43,42,0.85)', color: '#FFF', padding: '6px 16px', borderRadius: '50px', fontSize: '0.8rem', fontWeight: 700, zIndex: 5 }}>BEFORE</span>
+                    <span style={{ position: 'absolute', top: '20px', right: '20px', background: 'var(--theme-color)', color: 'var(--dark-slate)', padding: '6px 16px', borderRadius: '50px', fontSize: '0.8rem', fontWeight: 800, zIndex: 5 }}>AFTER</span>
                   </div>
 
                   <div>
