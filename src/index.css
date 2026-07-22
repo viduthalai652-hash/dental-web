@@ -357,7 +357,17 @@ p, span, div, .body-inter {
   .grid-hero, .grid-alternating-even, .grid-alternating-odd, .grid-contact { grid-template-columns: 1fr; gap: 24px; }
   .glass-card, .glass-panel { padding: 24px !important; }
   .video-showcase-container { width: 100% !important; height: auto !important; aspect-ratio: 16/9; }
+  .video-showcase-container { width: 100% !important; height: auto !important; aspect-ratio: 16/9; }
+  .nav-links-desktop { display: none !important; }
+  .mobile-menu-btn { display: block !important; }
+  .hide-on-mobile { display: none !important; }
+  .hero-title-home { font-size: 2.5rem !important; }
+  .hero-title-clinics { font-size: 2.8rem !important; }
 }
+
+.nav-links-desktop { display: flex; align-items: center; gap: 8px; }
+.mobile-menu-btn { display: none; background: transparent; border: none; cursor: pointer; color: var(--dark-slate); padding: 6px; }
+.hide-on-mobile { display: inline; }
 
 .grid-hero { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 48px; align-items: center; }
 .grid-alternating-even { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 48px; align-items: center; }

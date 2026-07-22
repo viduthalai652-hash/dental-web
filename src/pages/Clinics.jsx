@@ -234,7 +234,7 @@ export default function Clinics({ onOpenBooking, onOpenTour }) {
             <span style={{ color: '#59C29D', fontWeight: 700, fontSize: '1.1rem', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '16px', display: 'inline-block' }}>
               The Next Standard of Care
             </span>
-            <h1 style={{ fontSize: '4.5rem', fontWeight: 900, color: '#2D2B3D', lineHeight: 1.1, marginBottom: '24px' }}>
+            <h1 className="hero-title-clinics" style={{ fontWeight: 900, color: '#2D2B3D', lineHeight: 1.1, marginBottom: '24px' }}>
               Experience <span className="purple-gradient-text">Premium Dental Care</span> at Our Clinics
             </h1>
             <p style={{ fontSize: '1.25rem', color: '#5A5A6E', lineHeight: 1.7, marginBottom: '40px', maxWidth: '650px' }}>

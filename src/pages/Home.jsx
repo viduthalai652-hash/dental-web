@@ -151,7 +151,7 @@ export default function Home({ onOpenBooking }) {
               <Sparkles size={16} color="#1D2B2A" /> #1 Luxury Dental & Clear Aligner Brand
             </div>
 
-            <h1 style={{ fontSize: '3.6rem', fontWeight: 800, lineHeight: 1.12, marginBottom: '24px', letterSpacing: '-0.02em', color: 'var(--dark-slate)' }}>
+            <h1 className="hero-title-home" style={{ fontWeight: 800, lineHeight: 1.12, marginBottom: '24px', letterSpacing: '-0.02em', color: 'var(--dark-slate)' }}>
               Crafting Confident Smiles with <span className="gradient-text-mint">Advanced Dental Care</span>
             </h1>
 

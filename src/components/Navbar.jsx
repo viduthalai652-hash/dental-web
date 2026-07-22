@@ -73,7 +73,7 @@ export default function Navbar({ onOpenBooking }) {
         </Link>
 
         {/* Desktop Navigation Links */}
-        <nav style={{ display: 'flex', alignItems: 'center', gap: '8px', background: scrolled ? 'transparent' : 'rgba(255, 255, 255, 0.6)', padding: scrolled ? '0' : '6px 14px', borderRadius: '50px', backdropFilter: scrolled ? 'none' : 'blur(12px)', border: scrolled ? 'none' : '1px solid rgba(255, 255, 255, 0.6)' }}>
+        <nav className="nav-links-desktop" style={{ background: scrolled ? 'transparent' : 'rgba(255, 255, 255, 0.6)', padding: scrolled ? '0' : '6px 14px', borderRadius: '50px', backdropFilter: scrolled ? 'none' : 'blur(12px)', border: scrolled ? 'none' : '1px solid rgba(255, 255, 255, 0.6)' }}>
           {navLinks.map((link) => {
             const isActive = location.pathname === link.path;
             return (
@@ -115,7 +115,7 @@ export default function Navbar({ onOpenBooking }) {
             }}
           >
             <PhoneCall size={18} color="#59C29D" />
-            <span style={{ display: 'none', smDisplay: 'inline' }}>24/7 VIP Care</span>
+            <span className="hide-on-mobile">24/7 VIP Care</span>
           </a>
 
           <button
@@ -133,14 +133,7 @@ export default function Navbar({ onOpenBooking }) {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            style={{
-              display: 'none',
-              background: 'transparent',
-              border: 'none',
-              cursor: 'pointer',
-              color: 'var(--dark-slate)',
-              padding: '6px'
-            }}
+            className="mobile-menu-btn"
             aria-label="Toggle Navigation Menu"
           >
             {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
