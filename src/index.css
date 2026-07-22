@@ -339,7 +339,12 @@ p, span, div, .body-inter {
 }
 
 /* Base Utility Styles */
-.hero-title-about { font-size: 3.8rem; }
+.hero-title-main { font-size: 4.5rem; }
+.hero-title-home { font-size: 4.5rem; }
+.hero-title-clinics { font-size: 4.5rem; }
+.hero-title-about { font-size: 4.5rem; }
+.hero-desc { font-size: 1.25rem; }
+
 .nav-links-desktop { display: flex; align-items: center; gap: 8px; }
 .mobile-menu-btn { display: none; background: transparent; border: none; cursor: pointer; color: var(--dark-slate); padding: 6px; }
 .hide-on-mobile { display: inline; }
