@@ -452,7 +452,7 @@ export default function Clinics({ onOpenBooking, onOpenTour }) {
               <ChevronLeft size={32} />
             </button>
             
-            <div style={{ position: 'relative', width: '800px', height: '450px', background: 'rgba(255,255,255,0.05)', borderRadius: '32px', border: '1px solid rgba(255,255,255,0.1)', overflow: 'hidden', display: 'flex' }}>
+            <div className="video-showcase-container" style={{ background: 'rgba(255,255,255,0.05)', borderRadius: '32px', border: '1px solid rgba(255,255,255,0.1)', overflow: 'hidden', display: 'flex' }}>
               <video 
                 src={beforeAfterCases[baIdx].video} 
                 autoPlay 
@@ -515,7 +515,7 @@ export default function Clinics({ onOpenBooking, onOpenTour }) {
           
           <div style={{ display: 'flex', gap: '30px', marginTop: '60px', transition: 'transform 0.5s ease', transform: `translateX(-${reviewIdx * 10}%)` }}>
             {patientReviews.map((review, idx) => (
-              <div key={idx} className="glass-card-purple" style={{ minWidth: '400px', padding: '40px', textAlign: 'left', flexShrink: 0 }}>
+              <div key={idx} className="glass-card-purple" style={{ minWidth: 'min(85vw, 400px)', padding: '40px', textAlign: 'left', flexShrink: 0 }}>
                 <div style={{ display: 'flex', color: '#FFB800', marginBottom: '20px' }}>
                   {[...Array(review.rating)].map((_, i) => <Star key={i} size={20} fill="currentColor" />)}
                 </div>
@@ -533,7 +533,7 @@ export default function Clinics({ onOpenBooking, onOpenTour }) {
             ))}
             {/* Duplicated for smooth loop appearance */}
             {patientReviews.map((review, idx) => (
-              <div key={'dup'+idx} className="glass-card-purple" style={{ minWidth: '400px', padding: '40px', textAlign: 'left', flexShrink: 0 }}>
+              <div key={'dup'+idx} className="glass-card-purple" style={{ minWidth: 'min(85vw, 400px)', padding: '40px', textAlign: 'left', flexShrink: 0 }}>
                 <div style={{ display: 'flex', color: '#FFB800', marginBottom: '20px' }}>
                   {[...Array(review.rating)].map((_, i) => <Star key={i} size={20} fill="currentColor" />)}
                 </div>

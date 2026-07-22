@@ -115,7 +115,7 @@ export default function Aligners({ onOpenBooking }) {
       >
         <div style={{ position: 'absolute', top: '20%', right: '10%', width: '600px', height: '600px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(126, 217, 183, 0.35) 0%, transparent 70%)', filter: 'blur(40px)', pointerEvents: 'none' }} />
 
-        <div style={{ maxWidth: '1320px', margin: '0 auto', width: '100%', display: 'grid', gridTemplateColumns: '1.1fr 0.9fr', gap: '48px', alignItems: 'center', position: 'relative', zIndex: 2 }}>
+        <div className="grid-hero" style={{ maxWidth: '1320px', margin: '0 auto', width: '100%', position: 'relative', zIndex: 2 }}>
           <div>
             <span className="badge-mint" style={{ marginBottom: '24px' }}>
               <Sparkles size={16} /> Precision Digital Orthodontics
@@ -256,13 +256,9 @@ export default function Aligners({ onOpenBooking }) {
             return (
               <div
                 key={caseItem.id}
-                className="glass-card"
+                className={`glass-card ${isEven ? 'grid-alternating-even' : 'grid-alternating-odd'}`}
                 style={{
                   padding: '48px',
-                  display: 'grid',
-                  gridTemplateColumns: isEven ? '1.1fr 0.9fr' : '0.9fr 1.1fr',
-                  gap: '48px',
-                  alignItems: 'center',
                   background: 'var(--white)'
                 }}
               >

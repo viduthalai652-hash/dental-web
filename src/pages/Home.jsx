@@ -144,7 +144,7 @@ export default function Home({ onOpenBooking }) {
         <div style={{ position: 'absolute', top: '10%', right: '5%', width: '650px', height: '650px', borderRadius: '50%', border: '1px dashed rgba(126, 217, 183, 0.45)', pointerEvents: 'none' }} />
         <div className="animate-pulse" style={{ position: 'absolute', top: '20%', right: '12%', width: '500px', height: '500px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(126, 217, 183, 0.35) 0%, transparent 70%)', filter: 'blur(30px)', pointerEvents: 'none' }} />
 
-        <div style={{ maxWidth: '1320px', margin: '0 auto', width: '100%', display: 'grid', gridTemplateColumns: '1.1fr 0.9fr', gap: '48px', alignItems: 'center' }}>
+        <div className="grid-hero" style={{ maxWidth: '1320px', margin: '0 auto', width: '100%' }}>
           {/* Left Hero Content */}
           <div>
             <div className="badge-mint" style={{ marginBottom: '24px' }}>
@@ -459,7 +459,7 @@ export default function Home({ onOpenBooking }) {
             </div>
 
             {/* Selected Case Showcase Box */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(380px, 1fr))', gap: '48px', alignItems: 'center' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '48px', alignItems: 'center' }}>
               {/* Left Animated Visual Frame */}
               <div style={{ position: 'relative', height: '440px', borderRadius: '30px', overflow: 'hidden', boxShadow: '0 24px 60px rgba(0,0,0,0.18)', border: '2px solid rgba(126, 217, 183, 0.5)', background: 'var(--dark-slate)' }}>
                 {cases[galleryTab].gif.endsWith('.mp4') ? (
@@ -501,7 +501,7 @@ export default function Home({ onOpenBooking }) {
                 </p>
 
                 {/* 4 Clinical Specification Cards */}
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px', marginBottom: '32px' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', gap: '16px', marginBottom: '32px' }}>
                   <div style={{ padding: '16px 18px', background: 'var(--light-mint)', borderRadius: '18px', border: '1px solid rgba(126, 217, 183, 0.35)' }}>
                     <span style={{ display: 'block', fontSize: '0.78rem', color: 'var(--grey)', fontWeight: 600, marginBottom: '4px' }}>👨‍⚕️ Lead Specialist</span>
                     <strong style={{ fontSize: '0.92rem', color: 'var(--dark-slate)', display: 'block' }}>{cases[galleryTab].doctor}</strong>

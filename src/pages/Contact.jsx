@@ -169,7 +169,7 @@ export default function Contact({ onOpenBooking }) {
 
       {/* 3. MAIN APPOINTMENT FORM & DOCTOR SELECTION */}
       <section className="section-container">
-        <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 0.8fr', gap: '48px', alignItems: 'stretch' }}>
+        <div className="grid-contact">
           {/* Form Side */}
           <div className="glass-card" style={{ padding: '44px', background: 'var(--white)' }}>
             {!submitted ? (
