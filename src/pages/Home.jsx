@@ -253,7 +253,7 @@ export default function Home({ onOpenBooking }) {
 
             {/* Floating 3D Aligner Render Top Right */}
             <div
-              className="glass-card animate-float-slow"
+              className="glass-card animate-float-slow floating-aligner-card"
               style={{
                 position: 'absolute',
                 top: '24px',

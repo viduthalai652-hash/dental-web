@@ -364,6 +364,13 @@ p, span, div, .body-inter {
   .hero-title-home { font-size: 2.5rem !important; }
   .hero-title-clinics { font-size: 2.8rem !important; }
   .hero-title-about { font-size: 2.5rem !important; }
+  
+  .floating-aligner-card {
+    width: 140px !important;
+    right: 0 !important;
+    top: 10px !important;
+    padding: 8px !important;
+  }
 }
 
 .hero-title-about { font-size: 3.8rem; }
