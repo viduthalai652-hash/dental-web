@@ -103,6 +103,7 @@ export default function Navbar({ onOpenBooking }) {
         <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
           <a
             href="tel:+1800555SMILE"
+            className="hide-on-mobile"
             style={{
               display: 'flex',
               alignItems: 'center',
@@ -115,12 +116,12 @@ export default function Navbar({ onOpenBooking }) {
             }}
           >
             <PhoneCall size={18} color="#59C29D" />
-            <span className="hide-on-mobile">24/7 VIP Care</span>
+            <span>24/7 VIP Care</span>
           </a>
 
           <button
             onClick={onOpenBooking}
-            className="btn-primary"
+            className="btn-primary hide-on-mobile"
             style={{
               padding: '12px 24px',
               fontSize: '0.92rem'
