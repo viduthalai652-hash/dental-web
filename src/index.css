@@ -345,32 +345,66 @@ p, span, div, .body-inter {
 
 @media (max-width: 1024px) {
   .grid-3, .grid-4 { grid-template-columns: repeat(2, 1fr); }
-  .section-title h2 { font-size: 2.25rem; }
   .grid-hero, .grid-alternating-even, .grid-alternating-odd, .grid-contact { grid-template-columns: 1fr; gap: 32px; }
   .video-showcase-container { width: 100% !important; height: auto !important; aspect-ratio: 16/9; }
+  .hero-title-main { font-size: 54px !important; }
+  .hero-desc { font-size: 18px !important; }
+  .section-container, .section-padding { padding: 60px 20px !important; }
 }
 
 @media (max-width: 768px) {
   .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
-  .section-container, .section-padding { padding: 60px 18px !important; }
-  .section-title h2 { font-size: 1.85rem; }
   .grid-hero, .grid-alternating-even, .grid-alternating-odd, .grid-contact { grid-template-columns: 1fr; gap: 24px; }
+  
+  .section-container, .section-padding { padding: 40px 20px !important; }
+  
   .glass-card, .glass-panel { padding: 24px !important; }
-  .video-showcase-container { width: 100% !important; height: auto !important; aspect-ratio: 16/9; }
   .video-showcase-container { width: 100% !important; height: auto !important; aspect-ratio: 16/9; }
   .nav-links-desktop { display: none !important; }
   .mobile-menu-btn { display: block !important; }
   .hide-on-mobile { display: none !important; }
-  .hero-title-home { font-size: 2.5rem !important; }
-  .hero-title-clinics { font-size: 2.8rem !important; }
-  .hero-title-about { font-size: 2.5rem !important; }
+  
+  .hero-title-main { font-size: 40px !important; line-height: 1.05 !important; }
+  .hero-desc { font-size: 16px !important; }
+  .hero-title-home { font-size: 40px !important; line-height: 1.05 !important; }
+  .hero-title-clinics { font-size: 40px !important; line-height: 1.05 !important; }
+  .hero-title-about { font-size: 40px !important; line-height: 1.05 !important; }
+  
+  .mobile-flex-col { display: flex !important; flex-direction: column !important; }
+  .mobile-btn-full { width: 100% !important; height: 56px !important; font-size: 16px !important; border-radius: 16px !important; }
   
   .floating-aligner-card {
-    width: 140px !important;
-    right: 0 !important;
-    top: 10px !important;
-    padding: 8px !important;
+    position: relative !important;
+    width: 85% !important;
+    margin: 20px auto 0 auto !important;
+    right: auto !important;
+    top: auto !important;
   }
+  
+  .hero-image-responsive {
+    max-width: 340px !important;
+    height: auto !important;
+    margin: 0 auto;
+  }
+  
+  .mobile-grid-2 {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+  }
+  
+  /* Disable heavy animations on mobile */
+  .animate-float, .animate-float-slow, .animate-float-3d {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+@media (max-width: 430px) {
+  .hero-title-main { font-size: 34px !important; }
+  .hero-title-home { font-size: 34px !important; }
+  .hero-title-clinics { font-size: 34px !important; }
+  .hero-title-about { font-size: 34px !important; }
 }
 
 .hero-title-about { font-size: 3.8rem; }

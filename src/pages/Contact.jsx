@@ -58,10 +58,10 @@ export default function Contact({ onOpenBooking }) {
           <span className="badge-mint" style={{ marginBottom: '20px' }}>
             <Sparkles size={16} /> VIP Concierge Scheduling
           </span>
-          <h1 style={{ fontSize: '3.6rem', color: 'var(--white)', marginBottom: '20px' }}>
+          <h1 className="hero-title-main" style={{ color: 'var(--white)', marginBottom: '20px' }}>
             Book Your Appointment Today
           </h1>
-          <p style={{ fontSize: '1.2rem', color: '#A0B2B2', lineHeight: 1.7, marginBottom: '36px' }}>
+          <p className="hero-desc" style={{ color: '#A0B2B2', lineHeight: 1.7, marginBottom: '36px' }}>
             Select your preferred specialist doctor below to reserve your complimentary 3D digital smile consultation or request immediate dental care.
           </p>
         </div>

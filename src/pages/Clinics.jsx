@@ -228,7 +228,7 @@ export default function Clinics({ onOpenBooking, onOpenTour }) {
       {/* SECTION 1: HERO BANNER */}
       <section style={{ position: 'relative', background: '#FFFFFF', overflow: 'hidden' }}>
         <div style={{ position: 'absolute', top: 0, right: 0, width: '40%', height: '100%', background: 'linear-gradient(135deg, #EAFBF5 0%, #FFFFFF 100%)', clipPath: 'polygon(20% 0, 100% 0, 100% 100%, 0 100%)' }} />
-        <div style={{ maxWidth: '1400px', margin: '0 auto', display: 'grid', gridTemplateColumns: '1.1fr 0.9fr', alignItems: 'center', minHeight: '90vh' }}>
+        <div className="grid-hero" style={{ maxWidth: '1400px', margin: '0 auto', alignItems: 'center', minHeight: '90vh' }}>
           
           <div style={{ padding: '40px', zIndex: 1, animation: 'fadeUp 0.8s ease' }}>
             <span style={{ color: '#59C29D', fontWeight: 700, fontSize: '1.1rem', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '16px', display: 'inline-block' }}>
@@ -237,14 +237,14 @@ export default function Clinics({ onOpenBooking, onOpenTour }) {
             <h1 className="hero-title-clinics" style={{ fontWeight: 900, color: '#2D2B3D', lineHeight: 1.1, marginBottom: '24px' }}>
               Experience <span className="purple-gradient-text">Premium Dental Care</span> at Our Clinics
             </h1>
-            <p style={{ fontSize: '1.25rem', color: '#5A5A6E', lineHeight: 1.7, marginBottom: '40px', maxWidth: '650px' }}>
+            <p className="hero-desc" style={{ color: '#5A5A6E', lineHeight: 1.7, marginBottom: '40px', maxWidth: '650px' }}>
               Our clinics are equipped with advanced digital dentistry technology, experienced orthodontists, and patient-friendly treatment spaces designed to provide comfortable and precise dental care. Every clinic follows international treatment standards to ensure the highest quality smile transformation.
             </p>
-            <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
-              <button className="btn-primary" onClick={onOpenBooking}>
+            <div className="mobile-flex-col" style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
+              <button className="btn-primary mobile-btn-full" onClick={onOpenBooking}>
                 Book Appointment <ArrowRight size={20} />
               </button>
-              <button className="btn-secondary" onClick={() => document.getElementById('locations').scrollIntoView({ behavior: 'smooth' })}>
+              <button className="btn-secondary mobile-btn-full" onClick={() => document.getElementById('locations').scrollIntoView({ behavior: 'smooth' })}>
                 <MapPin size={20} /> Find Nearest Clinic
               </button>
             </div>
@@ -252,7 +252,7 @@ export default function Clinics({ onOpenBooking, onOpenTour }) {
 
           <div style={{ position: 'relative', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '40px', zIndex: 1 }}>
             <div style={{ position: 'absolute', width: '400px', height: '400px', background: 'rgba(89, 194, 157, 0.1)', borderRadius: '50%', filter: 'blur(80px)', top: '10%', left: '10%' }} />
-            <img src="/images/room_consultation.jpg" alt="Premium Dental Clinic" style={{ width: '100%', height: '700px', objectFit: 'cover', borderRadius: '40px', boxShadow: '0 30px 60px rgba(0,0,0,0.1)' }} />
+            <img src="/images/room_consultation.jpg" className="hero-image-responsive" alt="Premium Dental Clinic" style={{ width: '100%', height: '700px', objectFit: 'cover', borderRadius: '40px', boxShadow: '0 30px 60px rgba(0,0,0,0.1)' }} />
           </div>
 
         </div>
@@ -290,11 +290,11 @@ export default function Clinics({ onOpenBooking, onOpenTour }) {
                   </div>
                 </div>
 
-                <div style={{ display: 'flex', gap: '10px' }}>
-                  <button className="btn-primary" style={{ flex: 1, padding: '12px', fontSize: '0.9rem', justifyContent: 'center' }} onClick={onOpenBooking}>
+                <div className="mobile-flex-col" style={{ display: 'flex', gap: '10px' }}>
+                  <button className="btn-primary mobile-btn-full" style={{ flex: 1, padding: '12px', fontSize: '0.9rem', justifyContent: 'center' }} onClick={onOpenBooking}>
                     Book Now
                   </button>
-                  <button className="btn-secondary" style={{ flex: 1, padding: '12px', fontSize: '0.9rem', justifyContent: 'center' }} onClick={onOpenTour}>
+                  <button className="btn-secondary mobile-btn-full" style={{ flex: 1, padding: '12px', fontSize: '0.9rem', justifyContent: 'center' }} onClick={onOpenTour}>
                     View Clinic
                   </button>
                 </div>

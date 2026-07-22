@@ -120,17 +120,17 @@ export default function Aligners({ onOpenBooking }) {
             <span className="badge-mint" style={{ marginBottom: '24px' }}>
               <Sparkles size={16} /> Precision Digital Orthodontics
             </span>
-            <h1 style={{ fontSize: '3.6rem', color: 'var(--white)', lineHeight: 1.12, marginBottom: '24px' }}>
+            <h1 className="hero-title-main" style={{ color: 'var(--white)', lineHeight: 1.12, marginBottom: '24px' }}>
               Experience the Future of <span style={{ color: '#7ED9B7' }}>Invisible Teeth Alignment</span>
             </h1>
-            <p style={{ fontSize: '1.2rem', color: '#A0B2B2', lineHeight: 1.7, marginBottom: '36px' }}>
+            <p className="hero-desc" style={{ color: '#A0B2B2', lineHeight: 1.7, marginBottom: '36px' }}>
               Straighten your teeth up to 50% faster than metal braces with our ultra-transparent, removable crystal aligners. Custom 3D-printed for your unique dental anatomy.
             </p>
-            <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
-              <button onClick={onOpenBooking} className="btn-primary" style={{ padding: '18px 38px', fontSize: '1.05rem' }}>
+            <div className="mobile-flex-col" style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+              <button onClick={onOpenBooking} className="btn-primary mobile-btn-full" style={{ padding: '18px 38px', fontSize: '1.05rem' }}>
                 <Calendar size={20} /> Book Free 3D Aligner Scan
               </button>
-              <a href="#simulator" className="btn-secondary" style={{ padding: '18px 38px', fontSize: '1.05rem', color: 'var(--white)', borderColor: 'var(--white)' }}>
+              <a href="#simulator" className="btn-secondary mobile-btn-full" style={{ padding: '18px 38px', fontSize: '1.05rem', color: 'var(--white)', borderColor: 'var(--white)' }}>
                 Try Smile Simulator
               </a>
             </div>

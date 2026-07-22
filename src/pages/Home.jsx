@@ -151,26 +151,26 @@ export default function Home({ onOpenBooking }) {
               <Sparkles size={16} color="#1D2B2A" /> #1 Luxury Dental & Clear Aligner Brand
             </div>
 
-            <h1 className="hero-title-home" style={{ fontWeight: 800, lineHeight: 1.12, marginBottom: '24px', letterSpacing: '-0.02em', color: 'var(--dark-slate)' }}>
+            <h1 className="hero-title-main" style={{ fontWeight: 800, lineHeight: 1.12, marginBottom: '24px', letterSpacing: '-0.02em', color: 'var(--dark-slate)' }}>
               Crafting Confident Smiles with <span className="gradient-text-mint">Advanced Dental Care</span>
             </h1>
 
-            <p style={{ fontSize: '1.2rem', color: 'var(--grey)', lineHeight: 1.7, marginBottom: '36px', maxWidth: '580px' }}>
+            <p className="hero-desc" style={{ color: 'var(--grey)', lineHeight: 1.7, marginBottom: '36px', maxWidth: '580px' }}>
               Experience the pinnacle of modern dentistry. Combining precision 3D AI diagnostics, virtually invisible crystal aligners, and 100% painless sedation care inside ultra-luxury wellness clinics.
             </p>
 
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px', alignItems: 'center', marginBottom: '44px' }}>
-              <button onClick={onOpenBooking} className="btn-primary" style={{ padding: '18px 36px', fontSize: '1.05rem' }}>
+            <div className="mobile-flex-col" style={{ display: 'flex', flexWrap: 'wrap', gap: '16px', alignItems: 'center', marginBottom: '44px' }}>
+              <button onClick={onOpenBooking} className="btn-primary mobile-btn-full" style={{ padding: '18px 36px', fontSize: '1.05rem' }}>
                 <Calendar size={20} /> Book Appointment
               </button>
 
-              <Link to="/clinics" className="btn-secondary" style={{ padding: '18px 36px', fontSize: '1.05rem' }}>
+              <Link to="/clinics" className="btn-secondary mobile-btn-full" style={{ padding: '18px 36px', fontSize: '1.05rem' }}>
                 Explore 12 Clinics <ArrowRight size={18} />
               </Link>
             </div>
 
             {/* Quick Trust Badges */}
-            <div style={{ display: 'flex', gap: '32px', borderTop: '1px solid rgba(126, 217, 183, 0.3)', paddingTop: '28px' }}>
+            <div className="mobile-grid-2" style={{ display: 'flex', gap: '32px', borderTop: '1px solid rgba(126, 217, 183, 0.3)', paddingTop: '28px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                 <div style={{ width: '42px', height: '42px', borderRadius: '12px', background: 'rgba(126, 217, 183, 0.25)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <Award size={20} color="#1D2B2A" />
@@ -215,6 +215,7 @@ export default function Home({ onOpenBooking }) {
               <img
                 src="/images/hero_patient.jpg"
                 alt="Confident Patient Smile"
+                className="hero-image-responsive"
                 style={{
                   width: '100%',
                   height: '480px',
@@ -225,7 +226,7 @@ export default function Home({ onOpenBooking }) {
 
               {/* Floating Aligner Card Overlaid */}
               <div
-                className="glass-card animate-float"
+                className="glass-card animate-float floating-aligner-card"
                 style={{
                   position: 'absolute',
                   bottom: '-24px',

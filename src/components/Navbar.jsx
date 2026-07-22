@@ -37,14 +37,17 @@ export default function Navbar({ onOpenBooking }) {
         zIndex: 1000,
         transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
         padding: scrolled ? '12px 24px' : '20px 24px',
-        background: scrolled ? 'rgba(255, 255, 255, 0.82)' : 'transparent',
-        backdropFilter: scrolled ? 'blur(20px)' : 'none',
-        WebkitBackdropFilter: scrolled ? 'blur(20px)' : 'none',
+        background: scrolled ? 'rgba(255, 255, 255, 0.95)' : 'rgba(255, 255, 255, 0.8)',
+        backdropFilter: 'blur(20px)',
+        WebkitBackdropFilter: 'blur(20px)',
         boxShadow: scrolled ? '0 10px 35px rgba(29, 43, 42, 0.08)' : 'none',
-        borderBottom: scrolled ? '1px solid rgba(255, 255, 255, 0.8)' : '1px solid transparent'
+        borderBottom: '1px solid rgba(255, 255, 255, 0.8)',
+        minHeight: '70px',
+        display: 'flex',
+        alignItems: 'center'
       }}
     >
-      <div style={{ maxWidth: '1320px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+      <div style={{ width: '100%', maxWidth: '1320px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         {/* Logo */}
         <Link to="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '12px' }}>
           <div 
@@ -142,20 +145,22 @@ export default function Navbar({ onOpenBooking }) {
         </div>
       </div>
 
-      {/* Mobile Dropdown Menu */}
+      {/* Mobile Dropdown Menu (Full Screen Drawer) */}
       {mobileMenuOpen && (
         <div
-          className="glass-panel"
           style={{
-            position: 'absolute',
-            top: '100%',
-            left: '16px',
-            right: '16px',
+            position: 'fixed',
+            top: '70px',
+            left: 0,
+            right: 0,
+            bottom: 0,
             padding: '24px',
             display: 'flex',
             flexDirection: 'column',
-            gap: '12px',
-            marginTop: '10px'
+            gap: '16px',
+            background: 'var(--light-mint)',
+            zIndex: 999,
+            overflowY: 'auto'
           }}
         >
           {navLinks.map((link) => (
@@ -183,11 +188,33 @@ export default function Navbar({ onOpenBooking }) {
               onOpenBooking();
             }}
             className="btn-primary"
-            style={{ width: '100%', marginTop: '12px' }}
+            style={{ width: '100%', marginTop: 'auto', padding: '16px' }}
           >
             <Calendar size={18} />
             Book VIP Appointment
           </button>
+          
+          <a
+            href="tel:+1800555SMILE"
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '8px',
+              color: 'var(--dark-slate)',
+              textDecoration: 'none',
+              fontFamily: 'var(--font-subheading)',
+              fontWeight: 700,
+              fontSize: '1rem',
+              padding: '16px',
+              background: 'rgba(255,255,255,0.6)',
+              borderRadius: '16px',
+              border: '1px solid rgba(126, 217, 183, 0.4)'
+            }}
+          >
+            <PhoneCall size={20} color="#59C29D" />
+            <span>24/7 VIP Care</span>
+          </a>
         </div>
       )}
     </header>
