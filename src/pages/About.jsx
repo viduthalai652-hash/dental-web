@@ -49,10 +49,10 @@ export default function About({ onOpenBooking }) {
         <div style={{ position: 'absolute', inset: 0, opacity: 0.3, backgroundImage: `url('/images/hero_patient.jpg')`, backgroundSize: 'cover', backgroundPosition: 'center', filter: 'blur(2px)' }} />
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(90deg, rgba(29, 43, 42, 0.95) 0%, rgba(29, 43, 42, 0.75) 100%)' }} />
         
-        <div style={{ position: 'relative', zIndex: 2, maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '40px', alignItems: 'center' }}>
+        <div style={{ position: 'relative', zIndex: 2, maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '40px', alignItems: 'center' }}>
           <div>
             <span className="badge-mint" style={{ marginBottom: '20px' }}>About Precisalign</span>
-            <h1 style={{ fontSize: '4rem', color: 'var(--white)', marginBottom: '20px', lineHeight: 1.1 }}>
+            <h1 className="hero-title-about" style={{ color: 'var(--white)', marginBottom: '20px', lineHeight: 1.1 }}>
               Precision.<br/><span style={{ color: '#7ED9B7' }}>Comfort.</span><br/>Confidence.
             </h1>
             <p style={{ fontSize: '1.2rem', color: '#A0B2B2', lineHeight: 1.7, marginBottom: '24px' }}>
@@ -81,15 +81,15 @@ export default function About({ onOpenBooking }) {
         <h2 style={{ fontSize: '2.5rem', color: 'var(--dark-slate)', marginBottom: '48px', fontWeight: 800 }}>The Clear Way to a Perfect Smile</h2>
         <div style={{ maxWidth: '1000px', margin: '0 auto', display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '40px' }}>
           <div style={{ flex: '1 1 250px' }}>
-            <div style={{ fontSize: '4.5rem', fontWeight: 900, color: 'var(--white)', textShadow: '0 4px 10px rgba(0,0,0,0.1)' }}>{counts.clients}K+</div>
+            <div style={{ fontSize: 'clamp(3rem, 10vw, 4.5rem)', fontWeight: 900, color: 'var(--white)', textShadow: '0 4px 10px rgba(0,0,0,0.1)' }}>{counts.clients}K+</div>
             <div style={{ fontSize: '1.2rem', color: 'var(--dark-slate)', fontWeight: 700, marginTop: '10px' }}>Happy Clients</div>
           </div>
           <div style={{ flex: '1 1 250px' }}>
-            <div style={{ fontSize: '4.5rem', fontWeight: 900, color: 'var(--white)', textShadow: '0 4px 10px rgba(0,0,0,0.1)' }}>{counts.aligners}K+</div>
+            <div style={{ fontSize: 'clamp(3rem, 10vw, 4.5rem)', fontWeight: 900, color: 'var(--white)', textShadow: '0 4px 10px rgba(0,0,0,0.1)' }}>{counts.aligners}K+</div>
             <div style={{ fontSize: '1.2rem', color: 'var(--dark-slate)', fontWeight: 700, marginTop: '10px' }}>Aligners Delivered</div>
           </div>
           <div style={{ flex: '1 1 250px' }}>
-            <div style={{ fontSize: '4.5rem', fontWeight: 900, color: 'var(--white)', textShadow: '0 4px 10px rgba(0,0,0,0.1)' }}>{counts.satisfaction}%</div>
+            <div style={{ fontSize: 'clamp(3rem, 10vw, 4.5rem)', fontWeight: 900, color: 'var(--white)', textShadow: '0 4px 10px rgba(0,0,0,0.1)' }}>{counts.satisfaction}%</div>
             <div style={{ fontSize: '1.2rem', color: 'var(--dark-slate)', fontWeight: 700, marginTop: '10px' }}>Satisfaction Rate</div>
           </div>
         </div>
@@ -106,7 +106,7 @@ export default function About({ onOpenBooking }) {
             </p>
           </div>
           
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '32px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '32px' }}>
             {/* Card 1 */}
             <div className="glass-dark" style={{ padding: '0', position: 'relative', overflow: 'hidden', borderRadius: '32px' }}>
               <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
@@ -157,7 +157,7 @@ export default function About({ onOpenBooking }) {
 
       {/* 4 & 5. VISION & MISSION */}
       <section style={{ padding: '100px 24px', background: 'var(--dark-slate)', color: 'var(--white)' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(450px, 1fr))', gap: '40px' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '40px' }}>
           
           <div style={{ background: 'rgba(255,255,255,0.05)', borderRadius: '32px', padding: '48px', border: '1px solid rgba(126, 217, 183, 0.2)' }}>
             <div style={{ width: '56px', height: '56px', borderRadius: '16px', background: 'var(--gradient-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '24px' }}>
@@ -232,7 +232,7 @@ export default function About({ onOpenBooking }) {
           {/* Left Side: Sticky Title */}
           <div className="solutions-left" style={{ position: 'sticky', top: '150px', alignSelf: 'start' }}>
             <span className="badge-mint" style={{ marginBottom: '16px' }}>The Precisalign Difference</span>
-            <h2 style={{ fontSize: '3.8rem', color: 'var(--dark-slate)', marginBottom: '24px', fontWeight: 800, lineHeight: 1.1, letterSpacing: '-0.02em' }}>
+            <h2 className="hero-title-about" style={{ color: 'var(--dark-slate)', marginBottom: '24px', fontWeight: 800, lineHeight: 1.1, letterSpacing: '-0.02em' }}>
               Smarter, Comfortable Smile Solutions.
             </h2>
             <p style={{ color: 'var(--grey)', fontSize: '1.2rem', lineHeight: 1.6, marginBottom: '40px' }}>
@@ -282,7 +282,7 @@ export default function About({ onOpenBooking }) {
       <section style={{ padding: '120px 24px', background: 'var(--dark-slate)', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
         <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(circle at 50% 50%, rgba(126, 217, 183, 0.1) 0%, transparent 60%)' }} />
         <div style={{ position: 'relative', zIndex: 2, maxWidth: '800px', margin: '0 auto' }}>
-          <h2 style={{ fontSize: '3.5rem', color: 'var(--white)', marginBottom: '24px', fontWeight: 800 }}>Craft the Smile You Deserve with Precisalign</h2>
+          <h2 className="hero-title-about" style={{ color: 'var(--white)', marginBottom: '24px', fontWeight: 800 }}>Craft the Smile You Deserve with Precisalign</h2>
           <p style={{ fontSize: '1.2rem', color: '#A0B2B2', lineHeight: 1.6, marginBottom: '48px' }}>
             Begin your smile transformation with expert-guided clear aligner treatment and personalized care tailored to you.
           </p>

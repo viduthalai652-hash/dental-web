@@ -363,7 +363,10 @@ p, span, div, .body-inter {
   .hide-on-mobile { display: none !important; }
   .hero-title-home { font-size: 2.5rem !important; }
   .hero-title-clinics { font-size: 2.8rem !important; }
+  .hero-title-about { font-size: 2.5rem !important; }
 }
+
+.hero-title-about { font-size: 3.8rem; }
 
 .nav-links-desktop { display: flex; align-items: center; gap: 8px; }
 .mobile-menu-btn { display: none; background: transparent; border: none; cursor: pointer; color: var(--dark-slate); padding: 6px; }
