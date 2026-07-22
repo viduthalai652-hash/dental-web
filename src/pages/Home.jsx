@@ -194,7 +194,7 @@ export default function Home({ onOpenBooking }) {
           </div>
 
           {/* Right Hero Visual Area with 3D Floating Elements */}
-          <div style={{ position: 'relative', display: 'flex', justifyContent: 'center' }}>
+          <div className="mobile-flex-col" style={{ position: 'relative', display: 'flex', justifyContent: 'center', gap: '24px', alignItems: 'center' }}>
             {/* Soft Glowing Rings Behind */}
             <div style={{ position: 'absolute', inset: -20, borderRadius: '40px', background: 'radial-gradient(circle, rgba(126, 217, 183, 0.6) 0%, transparent 70%)', filter: 'blur(35px)', zIndex: 0 }} />
 
